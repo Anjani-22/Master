@@ -1,6 +1,8 @@
 # Personal Projects Repo
 
-This inlcudes learning project and self proejcts .
+This includes learning projects and self-projects.
+
+Also includes some DSA problems
 
 
 
