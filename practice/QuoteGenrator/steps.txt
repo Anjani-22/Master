@@ -1,8 +1,0 @@
-/* Steps
-
-1. Create const quoteArr = [], which holds all quotes
-2. Export this array
-3. Whenever add new qutote is clicked from index.html, quoteArr.push("..."), adds into array
-3a.Optional-. You can use OpenAI API to check if given quote is a quote and not a gibberish.
-4.Get new quote always displays a new quote, for now the user is anonymous, late we can add other features like showig quote of specific person only.
-*/
