@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS */
+/* Hide mobile menu initially */
+.mobile-menu {
+  display: none;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Show mobile menu on small screens */
+@media (max-width: 768px) {
+  .mobile-menu {
+    display: block;
+  }
+  .desktop-menu {
+    display: none;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <!-- HTML -->
+<nav>
+  <!-- Navigation links for large screens -->
+  <ul class="desktop-menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <!-- Hamburger menu for small screens -->
+  <button class="mobile-menu-toggle">☰</button>
+  <ul class="mobile-menu hidden">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+</body>
+</html>

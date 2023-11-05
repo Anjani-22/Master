@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Grid Layout Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: grid; /* Enable CSS Grid layout */
+      grid-template-columns: repeat(3, 1fr); /* Divide the container into three equal columns */
+      grid-gap: 20px; /* Add spacing between items */
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    .box {
+      padding: 20px;
+      box-sizing: border-box; /* Include padding in the total width */
+      background-color: #3498db;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+  </div>
+</body>
+</html>
