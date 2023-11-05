@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <!-- Link Bootstrap CSS from CDN -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Add your custom CSS (styles.css) if necessary -->
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Your content will go here -->
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">My Portfolio</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <section id="about" class="bg-light py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">About Me</h2>
+        <p class="text-center">
+          I am a passionate web developer with a focus on front-end
+          technologies. I love creating beautiful and user-friendly websites
+          using the latest web technologies.
+        </p>
+      </div>
+    </section>
+
+    <section id="portfolio" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Portfolio</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <a
+                href="https://github.com/pesto-students/p13-manish-kumar-Anjani-22/tree/week5/Week-5/JS_DOM_BOM_Storage/Tic-Tac-Toe"
+              >
+                <img
+                  src="Tic_Tac_image.jpg"
+                  class="card-img-top"
+                  alt="Project 1"
+                />
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Project 1</h5>
+                <p class="card-text">Description of Project 1.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Add more project cards if needed -->
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-light py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Contact</h2>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your Name" />
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Your Email" />
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              rows="5"
+              placeholder="Your Message"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+    <footer class="bg-dark text-light py-3">
+      <div class="container text-center">
+        <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Link Bootstrap JS and jQuery from CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

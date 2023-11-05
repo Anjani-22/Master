@@ -1,0 +1,4 @@
+File created via inbuilt node module file system(fs) by methods writeFile, 
+which takes filename first, 2nd data, callback functohandle error 
+
+Checking Again
