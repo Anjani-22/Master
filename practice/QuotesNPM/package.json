@@ -1,6 +1,6 @@
 {
   "name": "quotes-of-paradoxical-world",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Quotes Generator not necessary serious",
   "main": "index.js",
   "scripts": {

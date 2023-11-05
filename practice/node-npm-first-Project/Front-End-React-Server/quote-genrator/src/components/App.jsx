@@ -6,7 +6,7 @@ import Quote from "./Quote";
 import AllQuotes from "./AllQuotes";
 
 async function App() {
-  const url = "http://localhost:300";
+  const url = "http://localhost:3000";
   const [quote, setQuote] = useState("");
   const [inputValue, setInputValue] = useState("");
   let response = await fetch(url);

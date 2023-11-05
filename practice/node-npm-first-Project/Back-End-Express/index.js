@@ -5,14 +5,19 @@ const db = require("./DB-Folder/db_connection");
 
 const quoteArr = require("./DB-Folder/quote.json");
 app.get("/", function (req, res) {
-  if (Object.keys(req.index).length === 0) {
-    res.send(quoteArr.length);
-  } else {
-    res.json({ message: "Query parameters present" });
+  let index = req.query.index;
+
+  if (!index) {
+    let randomIndex = Math.floor(Math.random() * quoteArr.length);
+    let q = quoteArr[randomIndex].quote;
+    res.send(q);
   }
-  let index = req.index;
-  let quote = quoteArr[index];
-  res.send("quote");
+  if (index < 0 || index > quoteArr.length - 1) {
+    res.send(`index not in range , enter index b/w 0 and ${quoteArr.length}`);
+  } else {
+    let quote = quoteArr[index].quote;
+    res.send(quote);
+  }
 });
 
 app.post("/", function (req, res) {
