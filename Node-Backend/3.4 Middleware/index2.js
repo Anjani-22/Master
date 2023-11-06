@@ -8,7 +8,7 @@ app.use(morgan("combined"));
 
 app.get("/", (req, res) => {
   console.log("Before Sending" + req.method);
-  //res.send("Hello");
+  res.send("Hello");
 
   res.status(200); //else picks up default status 200
   console.log("After Sending res");
