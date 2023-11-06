@@ -7,7 +7,10 @@ const port = 3000;
 app.use(morgan("tiny"));
 
 app.get("/", (req, res) => {
-  res.send("Hello");
+  console.log("Before Sending");
+  //res.send("Hello");
+  res.sendStatus(702); //else picks up default status 200
+  console.log("After Sending res");
 });
 
 app.listen(port, () => {
