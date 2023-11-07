@@ -11,8 +11,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-  const l = (req.body["fname"] + req.body["lname"]).length;
-  res.render("index.ejs", (res.locals = { len: l }));
+  const l = (req.body["fName"] + req.body["lName"]).length;
+  res.render("index.ejs", { len: l });
 });
 
 app.listen(port, () => {
