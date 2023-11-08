@@ -1,6 +1,7 @@
 app.get("/", (req, res) => {
   const q = quote[randomIndex];
   res.render("index.ejs");
+  //see bandname for this if req has newQuote else send random quote
 });
 
 app.get("/edit", (req, res) => {
