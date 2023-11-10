@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 
 app.post("/recipe", (req, res) => {
   //Step 3: Write your code here to make this behave like the solution website.
-  // const foodName = req.body.choice;
+  // const foodName = JSON.parse(req.body.choice);
   // let food ;
   // if(foodName==="ChicanTaco")
   // {
