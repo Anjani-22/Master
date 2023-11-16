@@ -1,0 +1,262 @@
+The Complete 2023 Web Development Bootcamp
+Course image
+265. Instructions
+Course content
+Play
+248. Introduction to Postgres
+8min
+Start
+249. How to Install PostgreSQL and pgAdmin
+1min
+Play
+250. Understand how to use keys, Postgres types and keywords
+11min
+Start
+251. Flag Emojis on Windows ?
+1min
+Play
+252. Use pgAdmin to CREATE a TABLE
+17min
+Play
+253. READ data from a Postgres database
+23min
+Play
+254. Query data using SELECT, WHERE, and LIKE
+19min
+Play
+255. UNIQUE and NOT NULL | Travel Tracker Part 1
+19min
+Play
+256. INSERT and add Data | Travel Tracker Part 2
+17min
+Play
+257. Travel Tracker Part 3
+11min
+Play
+258. One to One Relationships & Inner Joins
+12min
+Play
+259. One to Many Relationships
+13min
+Play
+260. Many to Many Relationships & Aliases
+12min
+Play
+261. The Family Travel Tracker
+35min
+Play
+262. How to update and delete data & tables
+19min
+Play
+263. Permalist Project
+30min
+Play
+264. Tip from Angela - Daily Routines
+3min
+Start
+265. Instructions
+2min
+
+Where did the old web development videos go?
+2577 upvotes
+Dr. Angela · Lecture 10 · 7 months ago
+Q. I was working through the outdated lessons and now that you've updated the course, I've lost my progress and can't find the old outdated videos.
+
+12 replies
+
+Dr. Angela — Instructor
+Answer
+772 upvotes
+7 months ago
+You can still access all the old outdated lessons for free here:
+
+https://appbrewery.com/p/legacy-complete-web-development-course/
+
+
+
+You don't need to sign up and you don't need to give your email, just click on the "Preview" button and it will take you directly to the video player.
+
+
+
+If you have already completed HTML/CSS/Bootstrap and don't want to repeat it using the new materials, just click on the checkbox to the left of the lesson title to mark those lessons as completed on Udemy.
+
+
+
+
+VG
+Varun
+104 upvotes
+7 months ago
+Thank you for updating course.
+
+VG
+Varun
+339 upvotes
+7 months ago
+Can you add a project which uses React js and every thing else that we have learned
+
+IE
+Igwonobe
+89 upvotes
+7 months ago
+Thank you so much. Really appreciate the updates, but we can't find the video on how to properly set up VS Code. Please help...
+
+AS
+Anara Chibuike
+39 upvotes
+7 months ago
+Please there is no video on how to properly set up VS code and the paragraph element is that it can't be displayed on our VS code same with movie element.
+
+MM
+Musa
+75 upvotes
+7 months ago
+please update the react as new react has been release and also backend developement with node.js
+
+SW
+Stefan
+21 upvotes
+7 months ago
+I get the message "the progress for this element cannot be changed" when I want to click on the checkbox to the left of a lesson title. How can I then change my progress?
+
+JS
+Javandra
+108 upvotes
+7 months ago
+Can u update for backend web dev course?
+
+MA
+Matthew
+16 upvotes
+7 months ago
+Very happy to see the updated sections! Thank you Angela :)
+
+NK
+Nishant
+80 upvotes
+7 months ago
+can you please update the video where you have deployed the server for the first time in the course using heroku as heroku is not available for free now
+
+Please update that video.
+
+
+
+PB
+Patryk
+59 upvotes
+7 months ago
+Cool that course is being updated, I just finished doing Mailchimp API Newsletter and it's wasn't a pleasure experience at all... it needs to be updated ASAP.
+
+E
+Endwell
+30 upvotes
+7 months ago
+thanks so much great mentor
+
+A
+Add reply
+Add reply
+Teach the world online
+Create an online video course, reach students across the globe, and earn money
+Top companies choose Udemy Business to build in-demand career skills.
+NasdaqVolkswagenBoxNetAppEventbrite
+Udemy Business
+Teach on Udemy
+Get the app
+About us
+Contact us
+Careers
+Blog
+Help and Support
+Affiliate
+Investors
+Terms
+Privacy policy
+Sitemap
+Accessibility statement
+© 2023 Udemy, Inc.
+
+265. Instructions
+Instructions
+What are Capstone Projects?
+
+Overview
+I read a lot of books but after I finish reading them I often don't remember all the most salient parts of the book. So I started taking notes. This capstone project is built on this idea. My friend Derek Sivers has this fantastic website where he has all the non-fiction books he has read, his notes, his ratings and when he read them. The books are sortable by rating, recency and title. It's a such cool idea for a project so I'm including it as a capstone here in this course.
+
+Objectives
+Revise how to integrate public APIs into web projects.
+
+Gain more experience using Express/Node.js for server-side programming.
+
+Demonstrate ability to Create Read Update and Delete data in a PostgreSQL Database to persist data.
+
+Example Ideas
+Use the Open Library Covers API to fetch book covers.
+
+Create a database to store books you have read.
+
+Have a way to add new data about books, update previous reviews and delete entries.
+
+Display this information from your database in a website like https://sive.rs/book
+
+Be able to sort your book entries by rating and recency.
+
+Requirements
+1. Database Persistance
+Persist data using a PostgreSQL database.
+
+Use CRUD methods to manipulate data in the database.
+
+2. Project Planning
+Think through your project, researching the API documentation, project features, what data you will store, and how it will be used in your web application.
+
+Draw a database diagram on draw.io and plan out any relationships.
+
+Think through the PostgreSQL command you will need to write to create the schema for your database.
+
+3. Project Setup
+Set up a new Node.js project using Express.js.
+
+Include pg for working with your localhost PostgreSQL database.
+
+Include EJS for templating.
+
+Create a frontend in HTML CSS JS.
+
+Ensure that the project has a structured directory and file organization.
+
+4. API Integration
+Implement at least a GET endpoint to interact with your chosen API.
+
+Use Axios to send HTTP requests to the API and handle responses.
+
+5. Data Presentation
+Design the application to present the book covers from the API and the data in your database a in a user-friendly way.
+
+Use appropriate HTML, CSS, and a templating engine like EJS.
+
+Think about how you would allow the user to sort the data from the database.
+
+6. Error Handling
+Ensure that error handling is in place for both your application and any API requests. You can console log any errors, but you can also give users any user-relevant errors.
+
+7. Documentation
+Include comments throughout your code to explain your logic.
+
+8. Code Sharing
+Use what you have learnt about GitHub to commit and push your project to GitHub so that you can share it with other students in the Q&A area, I'd love to see what you've build too! You can tweet at me @yu_angela
+
+Include a Readme.md file that explains how to start your server, what commands are needed to run your code. e.g. npm i  and then nodemon index.js
+
+Recommended Resources
+Express.js: Getting Started Guide
+
+Node.js: Documentation
+
+Axios: Documentation
+
+Postgres: Documentation
+
+pg: Documentation
+
+Open Library Covers API:  https://openlibrary.org/dev/docs/api/covers
