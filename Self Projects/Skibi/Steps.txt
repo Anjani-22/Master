@@ -1,0 +1,1 @@
+1) input box, card react componet , connet with db , fetch rows from db, store it in arr, map to these arr elements to create card
