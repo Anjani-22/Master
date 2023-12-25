@@ -1,5 +1,13 @@
 import React from "react";
+import SearchBar from "../Components/SearchBar";
 
-export default function Home() {
-  return <h1>Home</h1>;
+function Home() {
+  return (
+    <div>
+      Home
+      <SearchBar />
+    </div>
+  );
 }
+
+export default Home;
