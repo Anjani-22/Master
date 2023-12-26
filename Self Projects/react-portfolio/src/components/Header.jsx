@@ -3,24 +3,20 @@ import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
 
 function Header() {
-  const [isFakeDark, setIsFakeDark] = useState(true);
+  const [isFakeDark, setIsFakeDark] = useState(false);
 
-  useEffect(
-    function () {
-      document.documentElement.classList.toggle("fake-dark-mode");
-    },
-    [isFakeDark]
-  );
+  function handleDarkMode() {
+    document.documentElement.classList.toggle("fake-dark-mode");
+    setIsFakeDark((isFakeDark) => !isFakeDark);
+  }
+
   return (
     <header>
       <nav className="navbar navbar-expand-custom navbar-mainbg">
         <Link className="navbar-brand navbar-logo" to="/">
           My Portfolio
         </Link>
-        <button
-          onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
-          className="btn-fake-dark-mode"
-        >
+        <button onClick={handleDarkMode} className="btn-fake-dark-mode">
           {isFakeDark ? "🌙 Dark Mode" : "☀️ Light Mode"}
         </button>
         <button

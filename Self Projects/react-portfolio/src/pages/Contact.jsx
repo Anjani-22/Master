@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import supabase from "../../Supabase";
+import supabase from "../Supabase";
 
 function Contact() {
   // State variables to store form data
@@ -22,27 +22,31 @@ function Contact() {
 
   // Handle form submission
   const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!formData.name || !formData.email) {
       setError("Name and email are required fields.");
-      return;
     }
 
     if (!emailRegex.test(formData.name)) {
       setError("Invalid email format.");
-      return;
     }
     if (!nameRegex.test(formData.name)) {
       setError("Invalid name format. Only letters and spaces are allowed.");
-      return;
     }
-    const { error } = await supabase.from("Portfolio_Customer_Data ").insert({
-      Name: formData.name,
-      Email: formData.email,
-      Comment: formData.text,
-    });
+
+    const { data, error } = await supabase
+      .from("Portfolio_Customer_Data ")
+      .insert([
+        { Name: formData.name, Email: formData.email, Comment: formData.text },
+      ])
+      .select();
 
     if (error) {
-      setError("Error inserting data into the database.");
+      setError(
+        "Currenlty facing error in inserting data into the database. Please share the required info on my linkedIn handle (in footer section) to connect"
+      );
+      alert(Error);
+      console.log("ErrorMsg :" + JSON.stringify(error));
     } else {
       // Success
       alert("Data inserted successfully!");
@@ -50,6 +54,7 @@ function Contact() {
       setError(null);
     }
     console.log("Form Data:", formData);
+    //console.log("Response :" + JSON.stringify(data));
     setFormData({ name: "", email: "", text: "" });
   };
 
