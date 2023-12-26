@@ -1,13 +1,6 @@
 import React from "react";
 
 function About() {
-  const listStyle = {
-    display: "flex",
-    flexDirection: "column",
-    listStyleType: "🔔",
-    alignItems: "flex-start", // Align items to the start (left in a left-to-right context)
-  };
-
   return (
     <div>
       <h1>About Me</h1>

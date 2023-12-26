@@ -40,7 +40,7 @@ form {
 }
 
 .feedback-input {
-  color: white;
+  color: #11235a;
   font-weight: 500;
   font-size: 18px;
   border-radius: 5px;
@@ -71,7 +71,7 @@ textarea {
   border-radius: 5px;
   border: 0;
   cursor: pointer;
-  color: white;
+  color: #ffe5e5;
   font-size: 24px;
   padding-top: 10px;
   padding-bottom: 10px;
