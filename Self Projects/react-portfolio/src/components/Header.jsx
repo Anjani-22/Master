@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
 
 function Header() {
+  const [isFakeDark, setIsFakeDark] = useState(true);
+
+  useEffect(
+    function () {
+      document.documentElement.classList.toggle("fake-dark-mode");
+    },
+    [isFakeDark]
+  );
   return (
     <header>
       <nav className="navbar navbar-expand-custom navbar-mainbg">
         <Link className="navbar-brand navbar-logo" to="/">
           My Portfolio
         </Link>
+        <button
+          onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
+          className="btn-fake-dark-mode"
+        >
+          {isFakeDark ? "🌙 Dark Mode" : "☀️ Light Mode"}
+        </button>
         <button
           className="navbar-toggler"
           type="button"
