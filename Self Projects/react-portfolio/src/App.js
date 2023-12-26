@@ -1,4 +1,4 @@
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import PageLayout from "./pages/PageLayout";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
@@ -6,6 +6,7 @@ import PageNotFound from "./pages/PageNotFound";
 import "./styles/content.css";
 import "./styles/layout.css";
 import { Route, Routes, HashRouter } from "react-router-dom";
+import Articles from "./pages/Article/Articles";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route element={<PageLayout />}>
           <Route index element={<Home />} />
+          <Route path="/articles" element={<Articles />} />
 
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

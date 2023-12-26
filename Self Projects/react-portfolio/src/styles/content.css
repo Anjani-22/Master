@@ -89,5 +89,6 @@ textarea {
   border-radius: 8px; /* Adjust the border-radius for rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust the shadow properties */
   background-color: #fae7f3; /* Adjust the background color as needed */
+  align-items: left;
   /* Additional styles can be added based on your requirements */
 }

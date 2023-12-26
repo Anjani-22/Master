@@ -10,12 +10,17 @@ function NavBar() {
 
       <li className="nav-item">
         <Link className="nav-link" to="/">
-          <i className="far fa-copy"></i>Home
+          <i className="fa fa-home"></i>Home
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/articles">
+          <i className="far fa-copy"></i>Articles
         </Link>
       </li>
       <li className="nav-item">
         <Link className="nav-link" to="/about">
-          <i className="far fa-clone"></i>About
+          <i className="far fa-user"></i>About
         </Link>
       </li>
       <li className="nav-item">
