@@ -7,12 +7,12 @@ import Header from "../components/Header";
 
 function PageLayout() {
   return (
-    <div>
+    <>
       <Header />
       <Main />
 
       <Footer />
-    </div>
+    </>
   );
 }
 

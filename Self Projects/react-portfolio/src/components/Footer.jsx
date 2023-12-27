@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "./NavBar";
+
 import SocialSites from "./SocialSites";
 import Waves from "./Waves";
 
@@ -8,8 +8,6 @@ function Footer() {
     <footer>
       <Waves />
       <SocialSites />
-
-      <NavBar />
     </footer>
   );
 }

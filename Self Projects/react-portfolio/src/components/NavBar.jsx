@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <ul className="navbar-nav ml-auto">
-      <div className="hori-selector">
-        <div className="left"></div>
-      </div>
-
+    <ul className="navbar-nav ">
       <li className="nav-item">
         <Link className="nav-link" to="/">
           <i className="fa fa-home"></i>Home
@@ -15,7 +11,9 @@ function NavBar() {
       </li>
       <li className="nav-item">
         <Link className="nav-link" to="/articles">
-          <i className="far fa-copy"></i>Articles
+          <span>
+            <i className="far fa-copy"></i>Articles
+          </span>
         </Link>
       </li>
       <li className="nav-item">

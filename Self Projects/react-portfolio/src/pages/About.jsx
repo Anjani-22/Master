@@ -19,7 +19,7 @@ function About() {
         </p>
         <p>
           Sometimes I tend to do quote musings while coding, so have compiled
-          all my thoughts in the form of an nmp pkg, which you can download from{" "}
+          all my thoughts in the form of an npm pkg, which you can download from{" "}
           <a href="https://www.npmjs.com/package/quotes-of-paradoxical-world">
             {" "}
             here{" "}

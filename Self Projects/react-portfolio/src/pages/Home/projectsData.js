@@ -20,13 +20,13 @@ const projects = [
     description: "Old Doctors Site",
     link: "https://smecanjani.github.io/doctor_font_end_only/",
   },
-  // {
-  //   id: 4,
-  //   title: "Tic tac Toe(Pesto Assignment)",
-  //   image: "./ProjectImages/tictactoe.jpg",
-  //   description: "TicTacToe (Pesto Assignment",
-  //   link: "https://658af374caaaa7b0cfca923f--aesthetic-pasca-1d4d3b.netlify.app/",
-  // },
+  {
+    id: 4,
+    title: "Tic tac Toe(Pesto Assignment)",
+    image: "./ProjectImages/tictactoe.jpg",
+    description: "TicTacToe (Pesto Assignment",
+    link: "https://658af374caaaa7b0cfca923f--aesthetic-pasca-1d4d3b.netlify.app/",
+  },
 ];
 
 export default projects;
