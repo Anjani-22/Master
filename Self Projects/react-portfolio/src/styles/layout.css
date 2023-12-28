@@ -85,7 +85,7 @@ i {
 }
 
 footer {
-  position: relative;
+  position: fixed;
   width: 100%;
 
   background: #3586ff;
@@ -95,7 +95,8 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  bottom: 10px;
+  bottom: 0px;
+  margin-bottom: 0px;
 }
 
 footer .social_icon {

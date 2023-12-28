@@ -12,6 +12,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease-in-out;
 
   img {
     width: 100%;
@@ -20,6 +21,7 @@
 
   &:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
   }
 
   .card-content {

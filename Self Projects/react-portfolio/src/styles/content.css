@@ -1,20 +1,10 @@
 html,
 body {
   height: 100%;
-}
-
-body {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
   min-height: 100vh;
-}
-
-header,
-footer {
-  position: relative;
-  flex: 0 0 auto;
-  margin-top: auto;
 }
 
 main {
@@ -106,4 +96,10 @@ textarea {
   border: none;
   border-radius: 10%;
   padding: 10px;
+}
+
+.contact {
+  width: 50%;
+  margin: auto;
+  position: relative;
 }
