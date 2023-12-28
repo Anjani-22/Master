@@ -10,12 +10,11 @@ import "./style.css";
 function App() {
   const [isFakeDark, setIsFakeDark] = useState(false);
 
-  useEffect(
-    function () {
-      document.documentElement.classList.toggle("fake-dark-mode");
-    },
-    [isFakeDark]
-  );
+  function handleDarkEfect() {
+    setIsFakeDark((isFakeDark) => !isFakeDark);
+    document.documentElement.classList.toggle("fake-dark-mode");
+  }
+
   return (
     <>
       <HashRouter>
@@ -30,10 +29,7 @@ function App() {
           </Route>
         </Routes>
       </HashRouter>
-      <button
-        onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
-        className="btn-fake-dark-mode"
-      >
+      <button onClick={handleDarkEfect} className="btn-fake-dark-mode">
         {isFakeDark ? "☀️" : "🌙"}
       </button>
     </>
