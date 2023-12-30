@@ -1,4 +1,4 @@
-import Home from "./pages/Home/Home";
+import Projects from "./pages/Projects/Projects";
 import PageLayout from "./pages/PageLayout";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
@@ -13,7 +13,7 @@ function App() {
     <HashRouter>
       <Routes>
         <Route element={<PageLayout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Projects />} />
           <Route path="/articles" element={<Articles />} />
 
           <Route path="/about" element={<About />} />

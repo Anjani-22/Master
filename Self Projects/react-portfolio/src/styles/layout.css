@@ -85,7 +85,7 @@ i {
 }
 
 footer {
-  position: fixed;
+  position: relative;
   width: 100%;
 
   background: #3586ff;
