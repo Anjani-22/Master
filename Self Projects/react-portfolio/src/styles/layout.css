@@ -123,11 +123,23 @@ footer .social_icon li a:hover {
 }
 
 p {
-  color: whtie;
+  color: white;
   text-align: center;
   margin-top: 15px;
   margin-bottom: 10px;
   font-size: 1.1em;
+}
+.advice-container {
+  transition: box-shadow 0.3s ease, cursor 0.3s ease;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+}
+
+.advice-container:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 /*wave and animation*/
