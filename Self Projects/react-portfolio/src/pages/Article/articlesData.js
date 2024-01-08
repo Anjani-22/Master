@@ -30,6 +30,13 @@ const projects = [
   },
   {
     id: 5,
+    title: "Verify your JWT",
+    image: "./ArticleImages/jwt.jpg",
+    description: "Verify your JWT",
+    link: "https://medium.com/@anjaniofficial22/verify-your-jwt-token-f776a2310098",
+  },
+  {
+    id: 6,
     title: "The need for tech people to understand non-tech people",
     image: "./ArticleImages/old-people-technology.jpg",
     description: "The need for tech people to understand non-tech people",

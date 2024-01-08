@@ -1,14 +1,30 @@
 import React, { useState, useEffect } from "react";
 
 const AdviceFetcher = () => {
-  const [advice, setAdvice] = useState("");
+  const [data, setdata] = useState("");
   const [fetching, setFetching] = useState(true);
+  const [fetchingJoke, setFetchingJoke] = useState(false);
 
   const fetchAdvice = async () => {
     try {
-      const response = await fetch("https://api.adviceslip.com/advice");
-      const data = await response.json();
-      setAdvice(data.slip.advice);
+      if (fetching) {
+        if (fetchingJoke) {
+          const response = await fetch(
+            "https://official-joke-api.appspot.com/random_joke"
+          );
+          const jokeData = await response.json();
+          setdata(`${jokeData.setup} ${jokeData.punchline}`);
+
+          console.log("Joke");
+        } else {
+          const response = await fetch("https://api.adviceslip.com/advice");
+          const adviceData = await response.json();
+          setdata(adviceData.slip.advice);
+
+          console.log("Adv");
+        } //else end
+        setFetchingJoke((prevState) => !prevState);
+      } //outer if fetching end
     } catch (error) {
       console.error("Error fetching advice:", error);
     }
@@ -21,6 +37,8 @@ const AdviceFetcher = () => {
       }
     }, 6000);
 
+    fetchAdvice();
+
     return () => clearInterval(intervalId);
   }, [fetching]);
 
@@ -30,7 +48,7 @@ const AdviceFetcher = () => {
       onMouseEnter={() => setFetching(false)}
       onMouseLeave={() => setFetching(true)}
     >
-      <p> {advice}</p>
+      <p> {data}</p>
     </div>
   );
 };
