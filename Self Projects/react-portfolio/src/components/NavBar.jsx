@@ -26,6 +26,15 @@ function NavBar() {
           <i className="far fa-calendar-alt"></i>Contact
         </Link>
       </li>
+      {/* <li className="nav-item">
+        <a
+          className="nav-link"
+          href="https://docs.google.com/document/d/1uCYPIO9Euj3gSLAdAstqRMtlskOlYUpp/edit?usp=sharing&ouid=113663976285024799121&rtpof=true&sd=true"
+          target="_blank"
+        >
+          <i class="fa-solid fa-file"></i>Resume
+        </a>
+      </li> */}
     </ul>
   );
 }

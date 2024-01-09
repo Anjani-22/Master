@@ -14,13 +14,24 @@ function About() {
           Hi, I m QA turned MERN Dev , I like to create creative website that
           makes peoples live easy and fun, with added colors of CSS. I have
           previously worked at
-          <a href="https://www.optum.com/"> Optum</a> as a dev and as a QA at
-          <a href="https://www.thoughtworks.com/en-in"> ThoughtWorks</a>
+          <a href="https://www.optum.com/" target="_blank">
+            {" "}
+            Optum
+          </a>{" "}
+          as a dev and as a QA at
+          <a href="https://www.thoughtworks.com/en-in" target="_blank">
+            {" "}
+            ThoughtWorks
+          </a>
         </p>
         <p>
           Sometimes I tend to do quote musings while coding, so have compiled
           all my thoughts in the form of an npm pkg, which you can download from{" "}
-          <a href="https://www.npmjs.com/package/quotes-of-paradoxical-world">
+          <a
+            href="https://www.npmjs.com/package/quotes-of-paradoxical-world"
+            target="_blank"
+            title="Click here to download npm pkg"
+          >
             {" "}
             here{" "}
           </a>
@@ -28,7 +39,14 @@ function About() {
           motivated with little bit of joke😜. A little about my technical
           background, I have passed with "First Class with distinction" along
           with "clearing GATE-2020", which has formed the basis for my CSE
-          fundamentals.
+          fundamentals, and here is my{" "}
+          <a
+            href="https://docs.google.com/document/d/1uCYPIO9Euj3gSLAdAstqRMtlskOlYUpp/edit?usp=sharing&ouid=113663976285024799121&rtpof=true&sd=true"
+            target="_blank"
+            title="Click here to see resume"
+          >
+            <strong>Resume</strong>
+          </a>
         </p>
       </div>
     </div>

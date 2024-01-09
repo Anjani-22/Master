@@ -78,13 +78,27 @@ textarea {
 
 .addedGap {
   margin-bottom: 60px;
-  margin-top: 20px; /* Adjust the margin as needed */
-  padding: 20px; /* Adjust the padding as needed */
-  border-radius: 8px; /* Adjust the border-radius for rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust the shadow properties */
-  background-color: #fae7f3; /* Adjust the background color as needed */
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fae7f3;
   align-items: left;
-  /* Additional styles can be added based on your requirements */
+  background-color: #ae445a;
+
+  a {
+    background-color: #f39f5a;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #1d1a39;
+    padding: 6px;
+    font-weight: bolder;
+
+    &:hover {
+      color: #f39f5a;
+      background-color: #1d1a39;
+    }
+  }
 }
 
 .fake-dark-mode {
