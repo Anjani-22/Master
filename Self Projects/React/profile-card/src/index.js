@@ -7,6 +7,7 @@ const skilList = [
   { name: "React", emoji: "😎", bgcolor: "orangered" },
   { name: "Node", emoji: "😁", bgcolor: "yellow" },
   { name: "HTML + CSS", emoji: "🤩", bgcolor: "orange" },
+  { name: "DS", emoji: "🤘", bgcolor: "skyblue" },
 ];
 
 function App() {
@@ -15,9 +16,7 @@ function App() {
       <Avatar />
       <div className="data">
         <Intro />
-        {/* Should contain one Skill component
-        for each web dev skill that you have,
-        customized with props */}
+
         <SkillList skilList={skilList} />
       </div>
     </div>
@@ -52,6 +51,12 @@ function Skill({ skill }) {
     <div className="skill" style={{ backgroundColor: skill.bgcolor }}>
       <span>{skill.name}</span>
       <span>{skill.emoji} </span>
+      {/* basedon levels <span>
+      level===iadvance && "👩"
+      level===intermidiated && "🎅"
+        level===intermidiated && "👷‍♂️"
+
+        <span/> */}
     </div>
   );
 }

@@ -69,45 +69,74 @@ function Footer() {
   const hour = new Date().getHours();
   console.log(hour);
   const open = 12;
-  const close = 23;
-  const isOpen = hour > open && hour < close;
+  const closeHour = 23;
+  const isOpen = hour >= open && hour < closeHour;
 
   // if (isOpen) alert("Open");
   // else alert("close");
   return (
     <footer className="footer">
-      {" "}
-      {new Date().toLocaleTimeString()} . We are cuurently Open
+      {isOpen ? (
+        <Order closeHour={closeHour} />
+      ) : (
+        <p>
+          {" "}
+          We are currently close. Please visit between {open}:00 to {closeHour}
+          :00
+        </p>
+      )}
     </footer>
   );
 }
 
+function Order({ closeHour }) {
+  return (
+    <div className="order">
+      <p>We are open until {closeHour}:00 . Please visit us or order Online</p>
+      <button className="btn">Order</button>
+    </div>
+  );
+}
+
 function Menu() {
+  const pizzas = pizzaData;
+  const pizzalen = pizzas.length;
+
   return (
     <main className="menu">
       <h2>Menu</h2>
-      <Pizza name="A" ingredients="B" price={2} imgSrc="pizzas/spinaci.jpg" />
-      <Pizza
-        name="A"
-        ingredients="B"
-        price={2}
-        imgSrc="pizzas/prosciutto.jpg"
-      />
+      {pizzalen > 0 ? (
+        // <React.Fragment key="fdfdf"> for List
+        <>
+          <p>
+            Floral creativity, that immediately connecs you with beauty of
+            nature
+          </p>
+          <ul className="pizzas">
+            {pizzas.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p>We are still working on our cards</p>
+      )}
     </main>
   );
 }
 
-function Pizza(props) {
-  console.log(props);
+function Pizza({ pizzaObj, test }) {
+  //if (pizzaObj.soldOut) return null;
+  //console.log(test);
   return (
-    <div className="pizza">
-      <img src={props.imgSrc} alt="spinach pizza" />
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""} `}>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredients} </p>
-        <span>{props.price + 5}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients} </p>
+        <span>{pizzaObj.soldOut ? "Sold Out" : pizzaObj.price}</span>
       </div>
-    </div>
+    </li>
   );
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
