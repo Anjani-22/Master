@@ -1,66 +1,30 @@
-import React, { StrictMode } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-const pizzaData = [
-  {
-    name: "Focaccia",
-    ingredients: "Bread with italian olive oil and rosemary",
-    price: 6,
-    photoName: "pizzas/focaccia.jpg",
-    soldOut: false,
-  },
-  {
-    name: "Pizza Margherita",
-    ingredients: "Tomato and mozarella",
-    price: 10,
-    photoName: "pizzas/margherita.jpg",
-    soldOut: false,
-  },
-  {
-    name: "Pizza Spinaci",
-    ingredients: "Tomato, mozarella, spinach, and ricotta cheese",
-    price: 12,
-    photoName: "pizzas/spinaci.jpg",
-    soldOut: false,
-  },
-  {
-    name: "Pizza Funghi",
-    ingredients: "Tomato, mozarella, mushrooms, and onion",
-    price: 12,
-    photoName: "pizzas/funghi.jpg",
-    soldOut: false,
-  },
-  {
-    name: "Pizza Salamino",
-    ingredients: "Tomato, mozarella, and pepperoni",
-    price: 15,
-    photoName: "pizzas/salamino.jpg",
-    soldOut: true,
-  },
-  {
-    name: "Pizza Prosciutto",
-    ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
-    price: 18,
-    photoName: "pizzas/prosciutto.jpg",
-    soldOut: false,
-  },
-];
+import floralData from "./data.js";
 
 function App() {
   return (
     <div className="container">
       <Header />
       <Menu />
+      <FallingFlower />
       <Footer />
     </div>
   );
 }
+function FallingFlower() {
+  return (
+    <>
+      <div class="falling-flower left"></div>
+      <div class="falling-flower right"></div>
+    </>
+  );
+}
 function Header() {
-  const style = {};
-  // const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
   return (
     <header className="header">
-      <h1 style={style}>Fast React Pizza Co.</h1>;
+      <h1>Floral Creativity Land </h1>;
     </header>
   );
 }
@@ -99,22 +63,19 @@ function Order({ closeHour }) {
 }
 
 function Menu() {
-  const pizzas = pizzaData;
-  const pizzalen = pizzas.length;
-
   return (
     <main className="menu">
-      <h2>Menu</h2>
-      {pizzalen > 0 ? (
+      <h2>Orchid Cards</h2>
+      {floralData.length > 0 ? (
         // <React.Fragment key="fdfdf"> for List
         <>
           <p>
-            Floral creativity, that immediately connecs you with beauty of
-            nature
+            Unleash your creative mind into land of floral art, that immediately
+            connects you with beauty of nature
           </p>
-          <ul className="pizzas">
-            {pizzas.map((pizza) => (
-              <Pizza pizzaObj={pizza} key={pizza.name} />
+          <ul className="florals">
+            {floralData.map((floral) => (
+              <Floral floralObj={floral} key={floral.name} />
             ))}
           </ul>
         </>
@@ -125,16 +86,16 @@ function Menu() {
   );
 }
 
-function Pizza({ pizzaObj, test }) {
-  //if (pizzaObj.soldOut) return null;
+function Floral({ floralObj }) {
+  //if (floralObj.soldOut) return null;
   //console.log(test);
   return (
-    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""} `}>
-      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+    <li className={`floral ${floralObj.soldOut ? "sold-out" : ""} `}>
+      <img src={floralObj.photoName} alt={floralObj.name} />
       <div>
-        <h3>{pizzaObj.name}</h3>
-        <p>{pizzaObj.ingredients} </p>
-        <span>{pizzaObj.soldOut ? "Sold Out" : pizzaObj.price}</span>
+        <h3>{floralObj.name}</h3>
+        <p>{floralObj.flowersUsed} </p>
+        <span>{floralObj.soldOut ? "Sold Out" : floralObj.price}</span>
       </div>
     </li>
   );
