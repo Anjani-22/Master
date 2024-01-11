@@ -16,8 +16,18 @@ function App() {
 function FallingFlower() {
   return (
     <>
-      <div class="falling-flower left"></div>
-      <div class="falling-flower right"></div>
+      <div className="falling-flower outerleft">
+        <img src="./favicon.ico" alt="flower favicon" />
+      </div>
+      <div className="falling-flower innerleft ">
+        <img src="./favicon.ico" alt="flower favicon" />
+      </div>
+      <div className="falling-flower outerright">
+        <img src="./favicon.ico" alt="flower favicon" />
+      </div>
+      <div className="falling-flower innerright">
+        <img src="./favicon.ico" alt="flower favicon" />
+      </div>
     </>
   );
 }

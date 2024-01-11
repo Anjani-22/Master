@@ -1,5 +1,12 @@
 const projects = [
   {
+    id: 5,
+    title: "Orchid Arts",
+    image: "./ProjectImages/orchids.jpg",
+    description: "A web application to sell the creative art using flower   ",
+    link: "https://659fe3061933d70907878d65--scintillating-genie-d73197.netlify.app/",
+  },
+  {
     id: 1,
     title: "BookList",
     image: "./ProjectImages/BookListSiteImg.jpg",

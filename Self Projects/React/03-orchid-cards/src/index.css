@@ -127,7 +127,7 @@ body {
   border-radius: right 5px;
 
   &:hover {
-    transform: scale(3);
+    transform: scale(2.5);
     z-index: 10;
   }
 }
@@ -202,8 +202,10 @@ body {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: #ff69b4; /* Adjust the color as needed */
-  clip-path: polygon(
+
+  transition: all 0.2s ease;
+  /* Adjust the color as needed */
+  /* clip-path: polygon(
     50% 0%,
     61% 35%,
     98% 35%,
@@ -214,34 +216,42 @@ body {
     32% 57%,
     2% 35%,
     39% 35%
-  );
-
-  animation: fall 4s linear infinite;
+  ); */
 }
 
-.falling-flower.left {
+.falling-flower.outerleft {
   left: 20px;
+  animation: fallinner 8s linear infinite;
+  margin-right: 10px;
+}
+.falling-flower.innerleft {
+  left: 50px;
+  animation: fallinner 10s linear infinite;
 }
 
-.falling-flower.right {
+.falling-flower.outerright {
   right: 20px;
+  animation: fallinner 8s linear infinite;
+  margin-left: 10px;
+}
+.falling-flower.innerright {
+  right: 50px;
+  animation: fallinner 10s linear infinite;
 }
 
-@keyframes fall {
+@keyframes fallinner {
   0% {
     transform: translateY(0) rotate(0);
   }
   25% {
-    transform: translateY(25vh);
+    transform: translateY(100vh) rotate(180deg);
   }
   50% {
-    transform: translateY(50vh);
+    transform: translateY(0) rotate(360deg);
   }
-  75% {
-    transform: translateY(75vh);
-  }
+  75%,
   100% {
-    transform: translateY(100vh);
+    transform: translateY(100vh) rotate(540deg);
   }
 }
 
