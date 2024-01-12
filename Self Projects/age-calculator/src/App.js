@@ -9,6 +9,7 @@ function App() {
   const [age, setAge] = useState(null);
   const [name, setName] = useState("");
   const [profession, setProfession] = useState("");
+  const [filePath, setfilePath] = useState("./ab.jpg");
 
   const calculateAge = () => {
     const dateArr = birthdate.split("-").map(Number);
@@ -33,8 +34,20 @@ function App() {
     );
 
     const ageDifference = now - bday;
-    if (ageDifference < 0) alert("Enter valid date from past");
-    else {
+    if (
+      name.length === 0 ||
+      profession.length === 0 ||
+      birthdate.length === 0 ||
+      birthtime.length === 0
+    ) {
+      alert("Fill all the fields, *asterisk marked inputs are mandatory");
+    }
+
+    if (ageDifference <= 0) {
+      alert("Enter valid date from past");
+      setbirthtime("");
+      setbirthdate("");
+    } else {
       const years = Math.floor(ageDifference / (365.25 * 24 * 60 * 60 * 1000));
       const months = Math.floor(
         (ageDifference % (365.25 * 24 * 60 * 60 * 1000)) /
@@ -58,6 +71,7 @@ function App() {
         minutes: minutes,
       });
     }
+    // document.querySelector(".your-class-name").classList.add("selected-image");
   };
 
   const handleReset = () => {
@@ -65,62 +79,83 @@ function App() {
     setbirthtime("");
     setbirthdate("");
     setAge(null);
+    setName("");
+    setProfession("");
+    setfilePath("./ab.jpg");
   };
 
   return (
-    <div className="input-container">
-      <label>
-        Enter your name:
-        <input
-          className="input-field"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-      </label>
+    <>
+      <div className="heading">
+        <h2> Calculate your age in Vijay Dinnanath Style😛</h2>
+      </div>
+      <div className="container">
+        <div className="input-container">
+          <label className="req">
+            Enter your full name:
+            <input
+              className="input-field"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </label>
 
-      <label>
-        Enter your profession:
-        <input
-          className="input-field"
-          type="text"
-          value={profession}
-          onChange={(e) => setProfession(e.target.value)}
-          required
-        />
-      </label>
+          <label className="req">
+            Enter your profession:
+            <input
+              className="input-field"
+              type="text"
+              value={profession}
+              onChange={(e) => setProfession(e.target.value)}
+              required
+            />
+          </label>
 
-      <label>
-        Enter your birthdate:
-        <input
-          className="input-field"
-          type="date"
-          value={birthdate}
-          onChange={(e) => setbirthdate(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Enter your birthdate:
-        <input
-          className="input-field"
-          type="time"
-          value={birthtime}
-          onChange={(e) => setbirthtime(e.target.value)}
-          required
-        />
-      </label>
-      <button onClick={calculateAge} className="calculator-button">
-        Calculate Age
-      </button>
+          <label className="req">
+            Enter your birthdate:
+            <input
+              className="input-field"
+              type="date"
+              value={birthdate}
+              onChange={(e) => setbirthdate(e.target.value)}
+              required
+            />
+          </label>
+          <label className="req">
+            Enter your birthdate:
+            <input
+              className="input-field"
+              type="time"
+              value={birthtime}
+              onChange={(e) => setbirthtime(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Enter your image:
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setfilePath(e.target.files[0])}
+            />
+          </label>
 
-      <button onClick={handleReset} className="calculator-button">
-        Reset
-      </button>
-      <Age age={age} name={name} profession={profession} />
-      <ImageUploader />
-    </div>
+          <button onClick={calculateAge} className="btn calculate">
+            Calculate Age
+          </button>
+
+          <button onClick={handleReset} className="btn reset">
+            Reset
+          </button>
+        </div>
+        <div className="output">
+          <ImageUploader file={filePath} />
+          <Age age={age} name={name} profession={profession} />
+        </div>
+      </div>
+    </>
   );
 }
 

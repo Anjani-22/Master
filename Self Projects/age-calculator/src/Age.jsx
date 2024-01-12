@@ -14,9 +14,17 @@ export default function Age({ age, name, profession }) {
   return (
     age !== null && (
       <div className="name-age">
-        <p>naam : ${name}</p>
-        <p>profession: ${profession}</p>
-        <p>{` Umar ${y} saal, ${m} mahina, ${d} din, aur ye ${h} ghanta chaalu hai hayee…`}</p>
+        <p>
+          naam.....<span>{name}</span>,
+        </p>
+        <p>
+          profession.....<span>{profession}</span>,
+        </p>
+        <p>
+          Umar <span>{y} saal</span>,<span>{m} mahina,</span>
+          <span>{d} din,</span>
+          <span>aur ye {h} ghanta chaalu hai hayee…. 😎</span>
+        </p>
       </div>
     )
   );
