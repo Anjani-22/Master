@@ -8,7 +8,7 @@ const projects = [
   },
   {
     id: 6,
-    title: "Age Calculator Vijay Dinnath Style",
+    title: "Age Calculator in Vijay Dinanath Style",
     image: "./ProjectImages/age-calculator.jpg",
     link: "https://65a191d8ffa330357f1f57e5--glowing-crumble-7fad31.netlify.app/",
   },
