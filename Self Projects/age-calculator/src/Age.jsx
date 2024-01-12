@@ -2,11 +2,11 @@ import React from "react";
 import hindiNumber from "./HindiNumbers";
 
 export default function Age({ age, name, profession }) {
-  if (age) return;
-  console.log(age);
+  if (age === null) return <div></div>;
+  console.log("in age.jsx " + { ...age });
   const y = hindiNumber[age.years];
   const m = hindiNumber[age.months];
-  const d = hindiNumber[age.dates];
+  const d = hindiNumber[age.days];
   const h = hindiNumber[age.hours];
 
   //Vijay Deenanath Chauhan Poora naam, Baap Ka naam Deenanath Chauhan, Umar Chattis saal Nau mahina 8 din aur ye solwan ghanta chaalu hai hayee…

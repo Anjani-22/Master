@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ImageUploader = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState("./ab.jpg");
   const [error, setError] = useState("");
 
   const handleImageChange = (e) => {
