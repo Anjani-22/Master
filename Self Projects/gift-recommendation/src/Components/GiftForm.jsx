@@ -15,7 +15,6 @@ const GiftForm = ({ onSubmit }) => {
 
     // Validate form inputs
     if (!age || !gender || !interests || !minPrice || !maxPrice) {
-      // You can provide feedback to the user, e.g., display an error message
       alert("Please fill in all fields.");
       return;
     }
@@ -47,7 +46,6 @@ const GiftForm = ({ onSubmit }) => {
           <option value="">Select</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
-          {/* Add more gender options if needed */}
         </select>
       </label>
       <br />

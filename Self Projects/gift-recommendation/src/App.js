@@ -16,50 +16,27 @@ const App = () => {
     currency,
   }) => {
     try {
-      // Replace 'YOUR_OPENAI_API_KEY' with your actual OpenAI API key
-      // const apiKey = "YOUR_OPENAI_API_KEY";
-      // const apiUrl =
-      //   "https://api.openai.com/v1/engines/davinci-codex/completions"; // Use the correct OpenAI API endpoint
+      const msg = `List recommended gift items based age: ${age}, gender: ${gender}, interests: ${interests}, minPrice: ${minPrice}, maxPrice: ${maxPrice}, currency: ${currency} `;
 
-      // // Prepare the prompt based on user preferences
-      // const prompt = `Gift ideas for a ${userPreferences.age}-year-old ${userPreferences.gender} interested in ${userPreferences.interests}.`;
+      const options = {
+        method: "POST",
+        header: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: msg,
+        }),
+      };
 
-      // // Make a request to the OpenAI API
-      // const response = await axios.post(
-      //   apiUrl,
-      //   {
-      //     prompt,
-      //     max_tokens: 50, // Adjust max_tokens based on the desired response length
-      //     n: 1, // Number of completions to generate
-      //   },
-      //   {
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       Authorization: `Bearer ${apiKey}`,
-      //     },
-      //   }
-      // );
+      const response = await fetch("http://localhost:8000/gift_rec", options);
+      const data = await response.json();
 
-      // // Extract the recommendation from the OpenAI API response
-      // const recommendation = response.data.choices[0]?.text;
-
-      // // Update the state with the recommendation
-      const key = process.env.REACT_APP_OPENAPI_KEY;
-      const openai = new OpenAI({ apiKey: key });
-
-      const prompt = `List recommended gift items based age: ${age}, gender: ${gender}, interests: ${interests}, minPrice: ${minPrice}, maxPrice: ${maxPrice}, currency: ${currency} `;
-
-      const completion = await openai.chat.completions.create({
-        messages: [{ role: "system", content: prompt }],
-        model: "gpt-3.5-turbo",
-      });
-
-      console.log(completion.choices[0]);
-      const recommendation = completion.choices[0];
-      setRecommendations([recommendation]);
+      console.log(data);
+      const recommendation = data.choices[0];
+      setRecommendations(recommendation);
     } catch (error) {
       // Handle errors appropriately, e.g., display an error message
-      console.error("Error fetching gift recommendations:", error.message);
+      console.error("👽 Error fetching gift recommendations:", error.message);
     }
   };
 
