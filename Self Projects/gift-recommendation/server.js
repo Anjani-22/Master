@@ -6,6 +6,7 @@ app.use(express.json());
 app.use(cors());
 
 const API_KEY = process.env.API_KEY;
+app.get("/gift_rec", (req, res) => res.send("<h1>HEllo learner<h1/>"));
 
 app.post("/gift_rec", async (req, res) => {
   const prompt = req.body.message;
