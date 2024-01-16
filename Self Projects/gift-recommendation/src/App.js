@@ -32,10 +32,9 @@ const App = () => {
       const data = await response.json();
 
       console.log(data);
-      const recommendation = data.choices[0];
+      const recommendation = data;
       setRecommendations(recommendation);
     } catch (error) {
-      // Handle errors appropriately, e.g., display an error message
       console.error("👽 Error fetching gift recommendations:", error.message);
     }
   };
