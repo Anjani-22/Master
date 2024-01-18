@@ -1,5 +1,3 @@
-// App.js
-import OpenAI from "openai";
 import React, { useState } from "react";
 import GiftForm from "./Components/GiftForm";
 import GiftList from "./Components/GiftList";
