@@ -3,51 +3,33 @@ import { useState } from "react";
 function DateCounter() {
   const [step, setStep] = useState(0);
   const [count, setCount] = useState(0);
-  const [dateStr, setdateStr] = useState("");
 
-  const iterativeDate = () => {
-    const skipCount = step * count;
-    const obj = new Date();
-    obj.setDate(obj.getDate() + skipCount);
+  const date = new Date();
+  date.setDate(date.getDate() + count);
 
-    const date = obj.getDate();
-    const month = obj.getMonth();
-    const year = obj.getFullYear();
+  const dateStr = date.toDateString();
+  console.log(dateStr);
 
-    const datestr = `${date} - ${month + 1} - ${year}`;
-    setdateStr(datestr);
-    console.log(date);
-  };
-
-  function handleCountPlus() {
-    setCount(count + 1);
-    iterativeDate();
-  }
-  function handleCountMinus() {
-    setCount(count - 1);
-    iterativeDate();
-  }
-  function handleStepPlus() {
-    setStep(step + 1);
-    iterativeDate();
-  }
-  function handleStepMinus() {
-    setStep(step - 1);
-    iterativeDate();
-  }
   return (
     <div>
       <div>
-        <button onClick={handleStepPlus}>+</button>
+        <button onClick={() => setStep((step) => step + 1)}>+</button>
         <span>Step : {step}</span>
-        <button onClick={handleStepMinus}>-</button>
+        <button onClick={() => setStep((step) => step - 1)}>-</button>
       </div>
       <div>
-        <button onClick={handleCountPlus}>+</button>
+        <button onClick={() => setCount((c) => c + step)}>+</button>
         <span>Count : {count}</span>
-        <button onClick={handleCountMinus}>-</button>
+        <button onClick={() => setCount((c) => c - step)}>-</button>
       </div>
-      <h2>{dateStr}</h2>
+      <h2>
+        {count === 0
+          ? "Today is : "
+          : count > 0
+          ? `${count} days from now `
+          : `${count} days ago was `}
+        {dateStr}
+      </h2>
     </div>
   );
 }
