@@ -16,7 +16,20 @@ function DateCounter() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        padding: "10px",
+        border: "2px solid #346222",
+        borderRadius: "5px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        gap: "10px",
+        margin: "10px",
+      }}
+    >
+      <h2 style={{ textAlign: "center", margin: "10px" }}>Date Counter</h2>
+
       <div>
         <span>Step : {step}</span>
         <input

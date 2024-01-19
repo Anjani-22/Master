@@ -17,7 +17,21 @@ export default function StepCounter() {
   }
 
   return (
-    <div className="parent">
+    <div
+      className="parent"
+      style={{
+        padding: "10px",
+        border: "2px solid #346222",
+        borderRadius: "5px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        gap: "10px",
+        margin: "10px",
+      }}
+    >
+      <h2 style={{ textAlign: "center", margin: "10px" }}>Step Counter</h2>
+
       <button className="close" onClick={() => setOpen(!open)}>
         &times;
       </button>

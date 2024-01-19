@@ -40,16 +40,31 @@ function FlashCard() {
     setSelec(id !== selc ? id : null);
   };
   return (
-    <div className="flashcards">
-      {cards.map((card) => (
-        <div
-          key={card.id}
-          className={card.id === selc ? "selected" : ""}
-          onClick={() => handleClick(card.id)}
-        >
-          <p>{card.id !== selc ? card.question : card.answer}</p>
-        </div>
-      ))}
+    <div
+      style={{
+        padding: "10px",
+        border: "2px solid #346222",
+        borderRadius: "5px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        gap: "10px",
+        margin: "10px",
+      }}
+    >
+      <h2 style={{ textAlign: "center", margin: "10px" }}>Flash Cards</h2>
+
+      <div className="flashcards">
+        {cards.map((card) => (
+          <div
+            key={card.id}
+            className={card.id === selc ? "selected" : ""}
+            onClick={() => handleClick(card.id)}
+          >
+            <p>{card.id !== selc ? card.question : card.answer}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
