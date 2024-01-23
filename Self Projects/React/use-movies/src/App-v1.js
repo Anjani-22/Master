@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const tempMovieData = [
   {
@@ -47,77 +47,8 @@ const tempWatchedData = [
   },
 ];
 
-const key = "d9f0b49";
-const omdbUrl = `http://www.omdbapi.com/?apikey=${key}&`;
-const query = "adfdsfd";
-
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
-
-export default function App() {
-  const [movies, setMovies] = useState(tempMovieData);
-  const [watched, setWatched] = useState(tempWatchedData);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  useEffect(function () {
-    async function fetchMovies() {
-      try {
-        setLoading(true);
-        const res = await fetch(`${omdbUrl}s=${query}`);
-        if (!res.ok) {
-          throw new Error("internet wonky");
-        }
-        const data = await res.json();
-        console.log(data);
-        if (data.Response === "False") {
-          throw new Error("Invalid query String");
-        }
-
-        setMovies(data.Search);
-
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchMovies();
-  }, []);
-
-  return (
-    <>
-      <Navbar>
-        <Search />
-        <NumResults movies={movies} />
-      </Navbar>
-      <Main>
-        <Box>
-          {loading && <Loader />}
-          {!loading && !error && <MovieList movies={movies} />}
-          {error && <Errmsg message={error} />}
-        </Box>
-        <Box>
-          <WatchedSummary watched={watched} />
-
-          <WatchedMovieList watched={watched} />
-        </Box>
-      </Main>
-    </>
-  );
-}
-function Errmsg({ message }) {
-  return (
-    <p className="error">
-      ⛔<span>{message}</span>
-    </p>
-  );
-}
-function Loader() {
-  return <p className="loader">Loading</p>;
-}
 
 function Navbar({ children }) {
   return (
@@ -281,5 +212,29 @@ function WatchedSummary({ watched }) {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function App() {
+  const [movies, setMovies] = useState(tempMovieData);
+  const [watched, setWatched] = useState(tempWatchedData);
+
+  return (
+    <>
+      <Navbar>
+        <Search />
+        <NumResults movies={movies} />
+      </Navbar>
+      <Main>
+        <Box>
+          <MovieList movies={movies} />
+        </Box>
+        <Box>
+          <WatchedSummary watched={watched} />
+
+          <WatchedMovieList watched={watched} />
+        </Box>
+      </Main>
+    </>
   );
 }
