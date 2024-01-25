@@ -78,12 +78,17 @@ export default function App() {
   function handleClose() {
     setSelectedId(null);
   }
+
   useEffect(
     function () {
+      const controller = new AbortController();
       async function fetchMovies() {
         try {
           setLoading(true);
-          const res = await fetch(`${omdbUrl}s=${query}`);
+          setError("");
+          const res = await fetch(`${omdbUrl}s=${query}`, {
+            signal: controller.signal,
+          });
           if (!res.ok) {
             throw new Error("internet wonky");
           }
@@ -92,12 +97,13 @@ export default function App() {
           if (data.Response === "False") {
             throw new Error("Invalid query String");
           }
-          setError("");
+
           setMovies(data.Search);
+          setError("");
 
           setLoading(false);
         } catch (err) {
-          setError(err.message);
+          if (err.name !== "AbortError") setError(err.message);
         } finally {
           setLoading(false);
         }
@@ -107,8 +113,12 @@ export default function App() {
         setError("");
         return;
       }
-
+      handleClose();
       fetchMovies();
+
+      return function () {
+        controller.abort();
+      };
     },
     [query]
   );
@@ -175,7 +185,19 @@ function MovieDetail({ selectedId, onClose, onAddWatch, watched, onDelete }) {
     Director: director,
     Genre: genre,
   } = selectedMovie;
-  console.log(selectedMovie);
+
+  useEffect(function () {
+    function keydownEventCallback(e) {
+      if (e.code === "Escape") {
+        onClose();
+      }
+    }
+    document.addEventListener("keydown", keydownEventCallback);
+    return function () {
+      document.removeEventListener("keydown", keydownEventCallback);
+    };
+  }, []);
+
   function handleAdd() {
     const newWatchedMovie = {
       imdbID: selectedId,
@@ -209,6 +231,10 @@ function MovieDetail({ selectedId, onClose, onAddWatch, watched, onDelete }) {
     function () {
       if (!title) return;
       document.title = `Movie | ${title}`;
+
+      return function () {
+        document.title = "useMovie";
+      };
     },
     [title]
   );
