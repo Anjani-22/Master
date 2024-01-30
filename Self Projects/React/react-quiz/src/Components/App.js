@@ -1,4 +1,6 @@
 import { useEffect, useReducer } from "react";
+import Ques from "./../questions";
+
 import Header from "./Header";
 import Main from "./Main";
 import Loader from "./Loader";
@@ -13,6 +15,7 @@ import Footer from "./Footer";
 import Timer from "./Timer";
 
 //loading, ready, error,active
+const secPerQues = 30;
 const intialState = {
   questions: [],
   status: "loading",
@@ -20,6 +23,7 @@ const intialState = {
   answer: null,
   points: 0,
   highScore: 0,
+  timeRemaining: null,
 };
 
 function reducer(state, action) {
@@ -30,7 +34,11 @@ function reducer(state, action) {
     case "dataFailed":
       return { ...state, status: "error" };
     case "start":
-      return { ...state, status: "active" };
+      return {
+        ...state,
+        status: "active",
+        timeRemaining: state.questions.length * secPerQues,
+      };
     case "newAnswer":
       const question = state.questions.at(state.index);
       return {
@@ -56,22 +64,31 @@ function reducer(state, action) {
     case "restart":
       return { ...intialState, questions: state.questions, status: "ready" };
 
+    case "tick":
+      return {
+        ...state,
+        timeRemaining: state.timeRemaining - 1,
+        status: state.timeRemaining === 0 ? "finished" : state.status,
+      };
     default:
       throw new Error("Invalid Action");
   }
 }
 
 function App() {
-  const [{ questions, status, index, answer, points, highScore }, dispatch] =
-    useReducer(reducer, intialState);
+  const [
+    { questions, status, index, answer, points, highScore, timeRemaining },
+    dispatch,
+  ] = useReducer(reducer, intialState);
 
   const numsQues = questions.length;
   const maxPoints = questions.reduce((prev, curr) => prev + curr.points, 0);
   useEffect(function () {
-    fetch("http://localhost:8000/questions")
-      .then((res) => res.json())
-      .then((data) => dispatch({ type: "dataReceived", payload: data }))
-      .catch((err) => dispatch({ type: "dataFailed" }));
+    dispatch({ type: "dataReceived", payload: Ques });
+    // fetch("http://localhost:8000/questions")
+    //   .then((res) => res.json())
+    //   .then((data) => dispatch({ type: "dataReceived", payload: data }))
+    //   .catch((err) => dispatch({ type: "dataFailed" }));
   }, []);
 
   return (
@@ -98,7 +115,7 @@ function App() {
               answer={answer}
             />
             <Footer>
-              <Timer />
+              <Timer timeRemaining={timeRemaining} dispatch={dispatch} />
               <NextButton
                 dispatch={dispatch}
                 answer={answer}
