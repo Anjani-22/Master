@@ -1,5 +1,29 @@
 const projects = [
   {
+    id: 10,
+    title: "Navigating Tabs in react",
+    image: "./ProjectImages/react-tabs.jpg",
+    link: "https://65b93e4edb5b472525ff679d--heroic-arithmetic-1a1664.netlify.app/",
+  },
+  {
+    id: 11,
+    title: "Movies Rating",
+    image: "./ProjectImages/movies-rating.jpg",
+    link: "https://65b9412c7e710125a7faf8e5--grand-pie-586ece.netlify.app/",
+  },
+  {
+    id: 9,
+    title: "React Quiz - using useReducer",
+    image: "./ProjectImages/react-quiz.jpg",
+    link: "https://65b93bd96462c920d4b724c2--comforting-sherbet-1505cf.netlify.app/",
+  },
+  {
+    id: 8,
+    title: "Travel check list",
+    image: "./ProjectImages/travel-list.jpg",
+    link: "https://65b93afe9611e31fd810b092--effulgent-clafoutis-833654.netlify.app/",
+  },
+  {
     id: 5,
     title: "Orchid Arts",
     image: "./ProjectImages/orchids.jpg",
@@ -11,6 +35,12 @@ const projects = [
     title: "Age Calculator in Vijay Dinanath Style",
     image: "./ProjectImages/age-calculator.jpg",
     link: "https://65a191d8ffa330357f1f57e5--glowing-crumble-7fad31.netlify.app/",
+  },
+  {
+    id: 7,
+    title: "Collection of mini projects",
+    image: "./ProjectImages/miniProject.jpg",
+    link: "https://65b939589611e31e1610b0bb--subtle-gaufre-1f1011.netlify.app/",
   },
   {
     id: 1,

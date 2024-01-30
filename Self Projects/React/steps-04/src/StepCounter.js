@@ -47,10 +47,10 @@ export default function StepCounter() {
               {step} {messages[step - 1]}
             </p>
             <div className="buttons">
-              <Button bg="#7950f2" color="#fff">
-                <span>👈</span> Previuos
+              <Button bg="#7950f2" color="#fff" onClick={handlePrev}>
+                <span>👈</span> Previous
               </Button>
-              <Button bg="#7950f2" color="#fff">
+              <Button bg="#7950f2" color="#fff" onClick={handleNext}>
                 Next
                 <span>👉</span>
               </Button>
