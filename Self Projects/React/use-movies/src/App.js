@@ -5,7 +5,7 @@ import { useLocalStorage } from "./useLocalStorage";
 import { useKey } from "./useKey";
 
 const key = "d9f0b49";
-const omdbUrl = `http://www.omdbapi.com/?apikey=${key}&`;
+const omdbUrl = `https://www.omdbapi.com/?apikey=${key}&`;
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
