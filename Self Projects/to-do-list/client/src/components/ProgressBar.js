@@ -6,7 +6,7 @@ function ProgressBar({ progress }) {
     "rgb(141,181,145)",
   ];
 
-  const randomcolor = colors[Math.floor(Math.random().colors.length)];
+  const randomcolor = colors[Math.floor(Math.random() * colors.length)];
   return (
     <div className="outer-bar">
       <div
