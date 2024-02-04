@@ -1,0 +1,10 @@
+.nav {
+  background-color: bisque;
+  display: flex;
+  border-radius: 10px;
+}
+
+:global(.test) {
+  font-size: larger;
+  color: red;
+}

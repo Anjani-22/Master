@@ -1,21 +1,23 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import About from "./pages/About";
+import Homepage from "./pages/Homepage";
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
-import PGNF from "./pages/PGNF";
+import PageNotFound from "./pages/PageNotFound";
+import ApLayout from "./pages/ApLayout";
 
 function App() {
   //const x = 23;
   return (
     <div>
-      <h1>above routes</h1>
+      {/* <h1>above routes</h1> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<About />} />
+          <Route path="/" element={<Homepage />} />
           <Route path="pricing" element={<Pricing />} />
           <Route path="product" element={<Product />} />
-          <Route path="*" element={<PGNF />} />
+          <Route path="app" element={<ApLayout />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
     </div>
