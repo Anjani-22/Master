@@ -11,6 +11,8 @@ const bcrypt = require("bcrypt");
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => res.send("hello"));
+
 app.get("/todos/:userEmail", async (req, res) => {
   // console.log("🍔", req);
   const { userEmail } = req.params;

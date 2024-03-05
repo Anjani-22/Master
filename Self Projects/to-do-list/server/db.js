@@ -10,7 +10,11 @@ const pool = new Pool({
 });
 
 pool.on("error", (err) => {
-  console.error("Unexpected error on idle client", err);
+  if (err) console.error("Unexpected error on idle client", err);
+  else {
+    console.log("database successs");
+  }
+
   process.exit(-1);
 });
 
