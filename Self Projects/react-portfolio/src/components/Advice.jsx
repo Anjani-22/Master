@@ -40,7 +40,7 @@ const AdviceFetcher = () => {
     fetchAdvice();
 
     return () => clearInterval(intervalId);
-  }, [fetching]);
+  }, [fetching, fetchAdvice]);
 
   return (
     <div

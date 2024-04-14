@@ -1,5 +1,11 @@
 const projects = [
   {
+    id: 12,
+    title: "ChatApp MERN, JWT, Socket.io",
+    image: "./ProjectImages/chatapp.jpg",
+    link: "https://chat-app-web-app.onrender.com",
+  },
+  {
     id: 10,
     title: "Navigating Tabs in react",
     image: "./ProjectImages/react-tabs.jpg",

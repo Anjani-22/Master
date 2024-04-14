@@ -34,7 +34,7 @@ function Contact() {
       setError("Invalid name format. Only letters and spaces are allowed.");
     }
 
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("Portfolio_Customer_Data ")
       .insert([
         { Name: formData.name, Email: formData.email, Comment: formData.text },
