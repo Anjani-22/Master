@@ -23,55 +23,59 @@ const App: React.FC = () => {
     console.log("inside use effect comput");
     if (currentPlayer === "O" && winner === null) {
       setComputersMove(true);
-      const availableMoves: number[] = board.reduce<number[]>(
-        (acc, cell, index) => {
-          if (cell === "") acc.push(index);
-          return acc;
-        },
-        []
-      );
+      const computerChance = () => {
+        const availableMoves: number[] = board.reduce<number[]>(
+          (acc, cell, index) => {
+            if (cell === "") acc.push(index);
+            return acc;
+          },
+          []
+        );
 
-      const checkMove = (moveValue: string) => {
-        for (const move of availableMoves) {
-          const newBoard = [...board];
-          newBoard[move] = moveValue;
-          for (const [a, b, c] of winningCombinations) {
-            console.log("👉", a, b, c, board[a], board[b], board[c]);
-            if (
-              newBoard[a] === moveValue &&
-              newBoard[b] === moveValue &&
-              newBoard[c] === moveValue
-            ) {
-              newBoard[move] = "O";
-              setBoard(newBoard);
-              setCurrentPlayer("X");
+        const checkMove = (moveValue: string) => {
+          for (const move of availableMoves) {
+            const newBoard = [...board];
+            newBoard[move] = moveValue;
+            for (const [a, b, c] of winningCombinations) {
+              console.log("👉", a, b, c, board[a], board[b], board[c]);
+              if (
+                newBoard[a] === moveValue &&
+                newBoard[b] === moveValue &&
+                newBoard[c] === moveValue
+              ) {
+                newBoard[move] = "O";
+                setBoard(newBoard);
+                setCurrentPlayer("X");
 
-              return true;
+                return true;
+              }
             }
+            newBoard[move] = "";
           }
-          newBoard[move] = "";
+          return false;
+        };
+
+        if (checkMove("O") || checkMove("X")) {
+          setComputersMove(false);
+          return;
+        } else {
+          const randomIndex = Math.floor(Math.random() * availableMoves.length);
+
+          const newBoard: string[] = [...board];
+
+          newBoard[availableMoves[randomIndex]] = currentPlayer;
+          setBoard(newBoard);
+          setCurrentPlayer("X");
+          setComputersMove(false);
         }
-        return false;
       };
 
-      if (checkMove("O") || checkMove("X")) {
-        setComputersMove(false);
-        return;
-      } else {
-        const randomIndex = Math.floor(Math.random() * availableMoves.length);
-
-        const newBoard: string[] = [...board];
-
-        newBoard[availableMoves[randomIndex]] = currentPlayer;
-        setBoard(newBoard);
-        setCurrentPlayer("X");
-        setComputersMove(false);
-      }
+      setTimeout(computerChance, 1000);
     }
   }, [currentPlayer, board, winner]);
 
   useEffect(() => {
-    console.log("inside use effect winner");
+    //console.log("inside use effect winner");
     const checkWinner = (): void => {
       for (const [a, b, c] of winningCombinations) {
         if (board[a] && board[a] === board[b] && board[a] === board[c]) {
@@ -110,10 +114,18 @@ const App: React.FC = () => {
     <div className="App">
       <h1>Tic Tac Toe</h1>
       <div className="info">
+        {winner ? (
+          <h1 className="turn"> Result </h1>
+        ) : (
+          <h1 className="turn">
+            {" "}
+            {`${currentPlayer === "X" ? "Human" : "Machine"}`} Move
+          </h1>
+        )}
         <div className="board">
           {board.map((cell, index) => renderCell(index))}
         </div>
-        {winner && <img src={`./${winner}.png`} className="img" />}
+        {winner && <img src={`./${winner}.png`} className="img" alt="winner" />}
       </div>
       {winner && (
         <div className="message">
