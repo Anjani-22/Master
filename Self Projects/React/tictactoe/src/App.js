@@ -39,9 +39,26 @@ function App() {
         if (cell === null) acc.push(index);
         return acc;
       }, []);
+      const newBoard = [...board];
+      for (const move of availableMoves) {
+        newBoard[move] = "X"; // Assume user's move
+        for (const [a, b, c] of winningCombinations) {
+          if (
+            newBoard[a] &&
+            newBoard[a] === newBoard[b] &&
+            newBoard[a] === newBoard[c]
+          ) {
+            newBoard[move] = "O"; // Block user's winning move
+            setBoard(newBoard);
+            setCurrentPlayer("X");
+            return;
+          }
+        }
+        newBoard[move] = null;
+      }
 
       const randomIndex = Math.floor(Math.random() * availableMoves.length);
-      const newBoard = [...board];
+
       newBoard[availableMoves[randomIndex]] = currentPlayer;
       setBoard(newBoard);
       setCurrentPlayer("X");
@@ -76,7 +93,9 @@ function App() {
       </div>
       {winner && (
         <div className="message">
-          {winner === "Draw" ? "It's a draw!" : `Player ${winner} wins!`}
+          {winner === "Draw"
+            ? "It's a draw!"
+            : `Player ${winner === "X" ? "Human" : "Computer"} wins!`}
         </div>
       )}
       <button onClick={resetGame}>Reset Game</button>
