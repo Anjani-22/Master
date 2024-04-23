@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+    "jsx": "react",
+    "target": "es5", // Adjust the target ECMAScript version if needed
+    "lib": ["dom", "dom.iterable", "esnext"], // Specify necessary libraries
+    "allowJs": true, // Allow existing JavaScript files
+    "skipLibCheck": true, // Skip type checking for library files (optional)
+    "strict": true, // Enable strict mode for type safety
+    "forceConsistentCasingInFileNames": true, // Enforce consistent file naming (optional)
+    "esModuleInterop": true
+  },
+  "include": ["src"] // Include source files for compilation
+}
