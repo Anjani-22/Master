@@ -19,6 +19,8 @@ const App: React.FC = () => {
   const [board, setBoard] = useState<(string | null)[]>(initialBoard);
   const [currentPlayer, setCurrentPlayer] = useState<string | null>("X");
   const [winner, setWinner] = useState<string | null>(null);
+  const [loserPath, setLoserPath] = useState<string[]>([]);
+  const [currentPath, setCurrentPath] = useState<string>("");
 
   useEffect(() => {
     console.log("inside use effect winner ", winner);
@@ -28,6 +30,8 @@ const App: React.FC = () => {
           setWinner(board[a]);
           setCurrentPlayer(null);
           console.log("winner ", winner);
+          if (winner === "X" && !loserPath.includes(currentPath))
+            setLoserPath((paths) => [...paths, currentPath]);
           return;
         }
       }
@@ -53,9 +57,11 @@ const App: React.FC = () => {
         );
 
         const checkMove = (moveValue: string) => {
+          let lastVacantPlace: number;
           for (const move of availableMoves) {
             const newBoard = [...board];
             newBoard[move] = moveValue;
+
             for (const [a, b, c] of winningCombinations) {
               console.log("👉", a, b, c, board[a], board[b], board[c]);
               if (
@@ -63,7 +69,14 @@ const App: React.FC = () => {
                 newBoard[b] === moveValue &&
                 newBoard[c] === moveValue
               ) {
-                newBoard[move] = "O";
+                lastVacantPlace = move;
+                setCurrentPath((path) => path + "O");
+                if (loserPath.includes(currentPath)) {
+                  setCurrentPath((path) => path.slice(0, -1));
+                  break;
+                }
+
+                newBoard[lastVacantPlace] = "O";
                 setBoard(newBoard);
                 setCurrentPlayer("X");
 
@@ -108,6 +121,7 @@ const App: React.FC = () => {
     setCurrentPlayer(winner === "O" ? "O" : "X");
     setWinner(null);
     setComputersMove(false);
+    setCurrentPath("");
   };
 
   const renderCell = (index: number): JSX.Element => (
@@ -141,7 +155,7 @@ const App: React.FC = () => {
             : `Player ${winner} ${winner === "X" ? "Human" : "Computer"} wins!`}
         </div>
       )}
-      <button onClick={resetGame}>Reset Game</button>
+      <button onClick={resetGame}>Next Round</button>
     </div>
   );
 };

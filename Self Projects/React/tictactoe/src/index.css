@@ -79,6 +79,15 @@ code {
   transition: all ease-in 0.3s;
 }
 
+input {
+  margin-left: 4px;
+  border-radius: 10px;
+  padding: 6px;
+  width: 20%;
+  margin-top: 20px;
+  margin-right: 0px;
+}
+
 .message {
   font-size: 1.5rem;
   margin-top: 20px;

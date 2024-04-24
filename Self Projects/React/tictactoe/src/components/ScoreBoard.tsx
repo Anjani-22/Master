@@ -9,7 +9,7 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ winner, onReset }) => {
   const [machineScore, setMachineScore] = useState<number[]>([]);
   const [humanScore, setHumanScore] = useState<number[]>([]);
 
-  const [inputRounds, setInputRounds] = useState<number>(5);
+  const [inputRounds, setInputRounds] = useState<number>(0);
 
   useEffect(() => {
     if (winner === "X") {
@@ -28,6 +28,7 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ winner, onReset }) => {
     onReset();
     setHumanScore([]);
     setMachineScore([]);
+    setInputRounds(0);
   };
   const calculateTotalScore = (scores: number[]): number => {
     return scores.reduce((total, score) => total + score, 0);
@@ -36,23 +37,10 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ winner, onReset }) => {
   const totalMachineScore = calculateTotalScore(machineScore);
   const round = machineScore.length;
 
-  if (round > inputRounds) handleNewGame();
+  if (inputRounds !== null && round > inputRounds) handleNewGame();
 
   return (
     <div className="scoreboard">
-      <div>
-        <label htmlFor="inputRounds">Select Number of Rounds (5-10): </label>
-        <input
-          type="number"
-          id="inputRounds"
-          min={5}
-          max={10}
-          value={inputRounds}
-          onChange={(e) => setInputRounds(parseInt(e.target.value))}
-          disabled={round < inputRounds}
-        />
-      </div>
-
       <div className="score">
         <span>Human:</span>
         {humanScore.map((score, index) => (
@@ -69,8 +57,20 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ winner, onReset }) => {
       </div>
 
       <button onClick={handleNewGame}>New Game from Beginning</button>
+      <div className="input">
+        <label htmlFor="inputRounds">Rounds (min:4) </label>
+        <input
+          type="number"
+          id="inputRounds"
+          min={4}
+          placeholder="Enter No of rounds"
+          value={inputRounds}
+          onChange={(e) => setInputRounds(parseInt(e.target.value))}
+          disabled={round !== 0 && round < inputRounds}
+        />{" "}
+      </div>
 
-      {round >= inputRounds && (
+      {machineScore.length > 0 && round >= inputRounds && (
         <div className="celebrate">
           Final Winner{" "}
           {totalHumanScore > totalMachineScore
