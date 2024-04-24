@@ -62,6 +62,7 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ winner, onReset }) => {
         <input
           type="number"
           id="inputRounds"
+          required
           min={4}
           placeholder="Enter No of rounds"
           value={inputRounds}
