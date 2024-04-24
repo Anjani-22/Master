@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ScoreBoard from "./components/ScoreBoard";
 
 const initialBoard: string[] = Array(9).fill("");
 
@@ -15,15 +16,34 @@ const winningCombinations: number[][] = [
 
 const App: React.FC = () => {
   const [computersMove, setComputersMove] = useState<boolean>(false);
-  const [board, setBoard] = useState<string[]>(initialBoard);
-  const [currentPlayer, setCurrentPlayer] = useState<"X" | "O">("X");
+  const [board, setBoard] = useState<(string | null)[]>(initialBoard);
+  const [currentPlayer, setCurrentPlayer] = useState<string | null>("X");
   const [winner, setWinner] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log("inside use effect comput");
-    if (currentPlayer === "O" && winner === null) {
-      setComputersMove(true);
+    console.log("inside use effect winner ", winner);
+    const checkWinner = (): void => {
+      for (const [a, b, c] of winningCombinations) {
+        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+          setWinner(board[a]);
+          setCurrentPlayer(null);
+          console.log("winner ", winner);
+          return;
+        }
+      }
+      if (board.every((cell) => cell !== "")) {
+        setWinner("Draw");
+      }
+    };
+
+    if (!winner) checkWinner();
+  }, [board, winner]);
+
+  useEffect(() => {
+    console.log("use effect computer move check ", winner);
+    if (winner == null && currentPlayer === "O") {
       const computerChance = () => {
+        if (winner) return;
         const availableMoves: number[] = board.reduce<number[]>(
           (acc, cell, index) => {
             if (cell === "") acc.push(index);
@@ -50,7 +70,7 @@ const App: React.FC = () => {
                 return true;
               }
             }
-            newBoard[move] = "";
+            newBoard[move] = null;
           }
           return false;
         };
@@ -61,7 +81,7 @@ const App: React.FC = () => {
         } else {
           const randomIndex = Math.floor(Math.random() * availableMoves.length);
 
-          const newBoard: string[] = [...board];
+          const newBoard: (string | null)[] = [...board];
 
           newBoard[availableMoves[randomIndex]] = currentPlayer;
           setBoard(newBoard);
@@ -69,39 +89,25 @@ const App: React.FC = () => {
           setComputersMove(false);
         }
       };
-
       setTimeout(computerChance, 1000);
     }
   }, [currentPlayer, board, winner]);
 
-  useEffect(() => {
-    //console.log("inside use effect winner");
-    const checkWinner = (): void => {
-      for (const [a, b, c] of winningCombinations) {
-        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-          setWinner(board[a]);
-          return;
-        }
-      }
-      if (board.every((cell) => cell !== "")) {
-        setWinner("Draw");
-      }
-    };
-
-    checkWinner();
-  }, [board]);
   const handleCellClick = (index: number): void => {
-    if (board[index] || winner) return;
+    if (currentPlayer === "O" || winner || board[index]) return;
+    console.log("clicked");
     const newBoard = [...board];
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
     setCurrentPlayer("O");
+    setComputersMove(true);
   };
 
   const resetGame = (): void => {
     setBoard(initialBoard);
-    setCurrentPlayer("X");
+    setCurrentPlayer(winner === "O" ? "O" : "X");
     setWinner(null);
+    setComputersMove(false);
   };
 
   const renderCell = (index: number): JSX.Element => (
@@ -112,14 +118,15 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1>Tic Tac Toe</h1>
+      <ScoreBoard winner={winner} onReset={resetGame} />
+      <h1>Tic Tac Toe </h1>
       <div className="info">
         {winner ? (
           <h1 className="turn"> Result </h1>
         ) : (
           <h1 className="turn">
             {" "}
-            {`${currentPlayer === "X" ? "Human" : "Machine"}`} Move
+            {`${currentPlayer === "X" ? "Your" : " 💻 Machine"}`} Move
           </h1>
         )}
         <div className="board">

@@ -74,7 +74,7 @@ const projects = [
     title: "Tic tac Toe(Pesto Assignment)",
     image: "./ProjectImages/tictactoe.jpg",
     description: "TicTacToe (Pesto Assignment",
-    link: "https://aesthetic-pasca-1d4d3b.netlify.app",
+    link: "https://jade-cat-d56db8.netlify.app/",
   },
 ];
 
