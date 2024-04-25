@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 
 interface ScoreBoardProps {
   winner: string | null;
-  onReset: () => void; // Function that takes no arguments and returns void
+  onReset: () => void;
 }
 
 const ScoreBoard: React.FC<ScoreBoardProps> = ({ winner, onReset }) => {
   const [machineScore, setMachineScore] = useState<number[]>([]);
   const [humanScore, setHumanScore] = useState<number[]>([]);
 
-  const [inputRounds, setInputRounds] = useState<number>(0);
+  const [inputRounds, setInputRounds] = useState<number>(4);
 
   useEffect(() => {
     if (winner === "X") {

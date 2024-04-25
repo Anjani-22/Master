@@ -63,7 +63,7 @@ const App: React.FC = () => {
             newBoard[move] = moveValue;
 
             for (const [a, b, c] of winningCombinations) {
-              console.log("👉", a, b, c, board[a], board[b], board[c]);
+              //console.log("👉", a, b, c, board[a], board[b], board[c]);
               if (
                 newBoard[a] === moveValue &&
                 newBoard[b] === moveValue &&
@@ -71,6 +71,8 @@ const App: React.FC = () => {
               ) {
                 lastVacantPlace = move;
                 setCurrentPath((path) => path + "O");
+
+                //need to update this code - compare the substring also
                 if (loserPath.includes(currentPath)) {
                   setCurrentPath((path) => path.slice(0, -1));
                   break;
@@ -108,7 +110,7 @@ const App: React.FC = () => {
 
   const handleCellClick = (index: number): void => {
     if (currentPlayer === "O" || winner || board[index]) return;
-    console.log("clicked");
+    //console.log("clicked");
     const newBoard = [...board];
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
